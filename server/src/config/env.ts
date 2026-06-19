@@ -7,8 +7,10 @@ interface EnvConfig {
   MONGO_URI: string;
   JWT_ACCESS_SECRET: string;
   JWT_REFRESH_SECRET: string;
-  REDIS_URL:string;
-  NODE_ENV:string
+  JWT_ACCESS_EXPIRES_IN: string;
+  JWT_REFRESH_EXPIRES_IN: string;
+  REDIS_URL: string;
+  NODE_ENV: string;
 }
 
 function validateEnv(): EnvConfig {
@@ -30,8 +32,10 @@ function validateEnv(): EnvConfig {
     MONGO_URI: process.env.MONGO_URI!,
     JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET!,
     JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET!,
-    REDIS_URL:process.env.REDIS_URL!,
-    NODE_ENV:process.env.NODE_ENV!,
+    JWT_ACCESS_EXPIRES_IN: process.env.JWT_ACCESS_EXPIRES_IN!,
+    JWT_REFRESH_EXPIRES_IN: process.env.JWT_REFRESH_EXPIRES_IN!,
+    REDIS_URL: process.env.REDIS_URL!,
+    NODE_ENV: process.env.NODE_ENV!,
   };
 }
 

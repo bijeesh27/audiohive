@@ -7,6 +7,8 @@ import { errorHandler } from "./middleware/error.js";
 import { globalRateLimiter } from "./middleware/rateLimiter.js";
 import { env } from "./config/env.js";
 
+import authRoute from "./modules/auth/interface/auth.routes.js";
+
 export function createApp(): Application {
   const app = express();
 
@@ -37,6 +39,8 @@ export function createApp(): Application {
       env: env.NODE_ENV,
     });
   });
+
+  app.use("/api/auth", authRoute);
 
   app.use((_req: Request, res: Response) => {
     res.status(404).json({
